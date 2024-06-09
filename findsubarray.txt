@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+public class SubarraySum {
+    public static ArrayList<Integer> findSubarray(int[] a, int s) {
+        int n = a.length;
+        int left = 0, right = 0;
+        int sum = 0;
+        ArrayList<Integer> result = new ArrayList<>();
+
+        while (right < n) {
+            sum += a[right];
+
+            while (sum > s && left <= right) {
+                sum -= a[left];
+                left++;
+            }
+
+            if (sum == s) {
+                result.add(left);
+                result.add(right);
+                return result;
+            }
+
+            right++;
+        }
+
+        return result; // return empty list if no subarray found
+    }
+
+    public static void main(String[] args) {
+        int[] a = {2, 3, 5, 7, 11, 13};
+        int s = 10;
+
+        ArrayList<Integer> result = findSubarray(a, s);
+
+        if (result.size() == 2) {
+            System.out.println("Subarray found: [" + result.get(0) + ", " + result.get(1) + "]");
+        } else {
+            System.out.println("No subarray found");
+        }
+    }
+}           
