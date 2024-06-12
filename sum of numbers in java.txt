@@ -1,0 +1,33 @@
+class sum
+{
+    int add(int x,int y)
+    {
+        int result;
+        result=x+y;
+        return result;
+    }
+    int add( )
+    {
+        int x=10;
+        int y=15;
+        int z=20;
+        int result=x+y+z;
+        return result;
+    }
+    double add(double x,double y)
+    {
+        double result;
+        result=x+y;
+        return result;
+    }
+    public static void main(String [] args)
+    {
+        sum obj=new sum();
+        int a=obj.add(10,15);
+        System.out.println("sum of two numbers:"+a);
+        int b=obj.add();
+        System.out.println("sum of two numbers:"+b);
+        double c=obj.add(10.00,15.12);
+        System.out.println("sum of two numbers:"+c);
+    }
+}      
